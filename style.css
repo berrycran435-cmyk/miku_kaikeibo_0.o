@@ -1,0 +1,214 @@
+:root {
+    --miku-teal: #39c5bb;       /* Warna Utama */
+    --miku-dark: #263238;       /* Warna Gelap */
+    --miku-pink: #e91e63;       /* Warna Aksen (Magenta) */
+    --bg-color: #f0fdfc;        /* Background Terang */
+    --glass: rgba(255, 255, 255, 0.9);
+    --neon-shadow: 0 0 10px rgba(57, 197, 187, 0.5);
+}
+
+body {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    background-image: 
+        linear-gradient(rgba(57, 197, 187, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57, 197, 187, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px; /* Efek Grid Kertas */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    color: var(--miku-dark);
+}
+
+.container {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* DEKORASI KHUSUS MIKU */
+.miku-logo {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgba(57, 197, 187, 0.2);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.app-title {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif; /* Font Sci-fi */
+    color: var(--miku-teal);
+    text-transform: uppercase;
+    margin-bottom: 0;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    text-align: center;
+    color: #888;
+    font-size: 0.8em;
+    margin-top: 5px;
+    letter-spacing: 4px;
+}
+
+/* SCREEN MANAGEMENT */
+.screen { display: none; opacity: 0; transition: opacity 0.5s; }
+.screen.active { display: block; opacity: 1; }
+.hidden { display: none !important; }
+
+/* CYBER CARD STYLE */
+.cyber-card, .balance-card {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    border-left: 5px solid var(--miku-teal);
+    box-shadow: 0 4px 15px rgba(57, 197, 187, 0.15);
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* CARD HEADER INDICATOR */
+.indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: var(--miku-teal);
+    margin-right: 5px;
+    box-shadow: 0 0 5px var(--miku-teal);
+}
+
+/* INPUTS */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    background: #fcfcfc;
+    border: 1px solid #ddd;
+    border-radius: 0; /* Kotak tajam futuristik */
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--miku-teal);
+    box-shadow: 0 0 5px rgba(57, 197, 187, 0.3);
+}
+
+/* BUTTONS */
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, var(--miku-dark), #455a64);
+    color: white;
+    border: none;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.btn-main {
+    background: linear-gradient(45deg, var(--miku-teal), #26a69a);
+}
+
+.btn-main:hover {
+    box-shadow: var(--neon-shadow);
+    transform: translateY(-2px);
+}
+
+.btn-sec { background: var(--miku-pink); }
+.auth-toggle { text-align: center; font-size: 0.85em; margin-top: 15px; }
+.auth-toggle a { color: var(--miku-teal); text-decoration: none; font-weight: bold; }
+
+/* DASHBOARD ELEMENTS */
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8em;
+}
+
+.highlight-text { color: var(--miku-teal); font-weight: bold; }
+.logout-text { color: var(--miku-pink); cursor: pointer; transition: 0.3s;}
+.logout-text:hover { text-shadow: 0 0 5px var(--miku-pink); }
+
+.balance-card {
+    background: linear-gradient(135deg, var(--miku-teal), #009688);
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+}
+
+.balance-card h1 { margin: 10px 0; font-family: 'Orbitron', sans-serif; letter-spacing: 2px; }
+
+.stats-grid { display: flex; gap: 10px; margin-top: 15px; }
+.stat-box {
+    background: rgba(0,0,0,0.2);
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.money-val { font-weight: bold; font-size: 1.1em; margin-top: 5px; }
+.stat-box.expense .money-val { color: #ff80ab; } /* Pink pastel */
+.stat-box.income .money-val { color: #b2dfdb; } /* Teal pastel */
+
+.form-row { display: flex; gap: 10px; }
+#type { width: 40%; }
+.form-actions { display: flex; gap: 10px; }
+
+/* LIST TRANSAKSI */
+ul { list-style: none; padding: 0; }
+
+li {
+    background: white;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 8px;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Border warna kiri menandakan jenis */
+li.income { border-left: 5px solid var(--miku-teal); }
+li.expense { border-left: 5px solid var(--miku-pink); }
+
+.trans-info { display: flex; flex-direction: column; }
+.trans-info span { font-weight: 500; }
+.trans-date { font-size: 0.7em; color: #aaa; margin-top: 3px;}
+
+.trans-amount { font-family: 'Orbitron', sans-serif; font-weight: bold; margin-right: 15px; }
+.income .trans-amount { color: var(--miku-teal); }
+.expense .trans-amount { color: var(--miku-pink); }
+
+/* Tombol Edit/Hapus Kecil */
+.action-group button {
+    width: auto;
+    padding: 5px 8px;
+    font-size: 10px;
+    margin: 0 2px;
+    border-radius: 3px;
+}
+.btn-edit { background: #ffc107; color: #333; }
+.btn-del { background: var(--miku-pink); }
