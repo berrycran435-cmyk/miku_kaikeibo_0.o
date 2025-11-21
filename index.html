@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミクファイナンス (Miku Finance)</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Mengambil font digital jika tersedia -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Dekorasi Background -->
+    <div class="bg-decoration"></div>
+
+    <div class="container">
+        <!-- Logo 01 Miku -->
+        <div class="miku-logo">01</div>
+        <h2 class="app-title">ミクファイナンス</h2>
+        <p class="subtitle">Virtual Financial Manager</p>
+
+        <!-- BAGIAN AUTHENTICATION -->
+        <div id="auth-screen" class="screen active">
+            <!-- Form Login -->
+            <div id="login-form" class="cyber-card">
+                <h3><span class="indicator"></span> LOGIN SYSTEM</h3>
+                <input type="text" id="login-user" placeholder="Username (ID)">
+                <input type="password" id="login-pass" placeholder="Password">
+                <button id="btn-login" class="btn-main">CONNECT</button>
+                <p class="auth-toggle">
+                    No ID? <a href="#" id="link-to-register">Create Account</a>
+                </p>
+            </div>
+
+            <!-- Form Register -->
+            <div id="register-form" class="cyber-card hidden">
+                <h3><span class="indicator"></span> NEW USER REGISTRATION</h3>
+                <input type="text" id="reg-user" placeholder="New Username">
+                <input type="password" id="reg-pass" placeholder="New Password">
+                <button id="btn-register" class="btn-main">REGISTER ID</button>
+                <p class="auth-toggle">
+                    Has ID? <a href="#" id="link-to-login">Login System</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- BAGIAN APLIKASI UTAMA -->
+        <div id="app-screen" class="screen hidden">
+            <div class="header-nav">
+                <span id="welcome-user">User: <span class="highlight-text">Admin</span></span>
+                <span id="btn-logout" class="logout-text">[ LOGOUT ]</span>
+            </div>
+
+            <!-- Kartu Saldo Digital -->
+            <div class="balance-card">
+                <small>CURRENT BALANCE</small>
+                <h1 id="balance">Rp 0</h1>
+                <div class="stats-grid">
+                    <div class="stat-box income">
+                        <small>INCOME</small>
+                        <div id="money-plus" class="money-val">+Rp 0</div>
+                    </div>
+                    <div class="stat-box expense">
+                        <small>EXPENSE</small>
+                        <div id="money-minus" class="money-val">-Rp 0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Input -->
+            <div class="cyber-card form-section">
+                <h3>INPUT DATA</h3>
+                <form id="form">
+                    <input type="hidden" id="edit-id">
+                    
+                    <div class="form-row">
+                        <input type="text" id="text" placeholder="Description (e.g. Leek)" required>
+                        <select id="type" required>
+                            <option value="income">Income (Masuk)</option>
+                            <option value="expense">Expense (Keluar)</option>
+                        </select>
+                    </div>
+                    <input type="number" id="amount" placeholder="Amount (Rp)" required>
+                    
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn" class="btn-main">ADD TRANSACTION</button>
+                        <button type="button" id="cancel-edit" class="btn-sec hidden">CANCEL</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Daftar Riwayat -->
+            <h3>HISTORY LOG</h3>
+            <ul id="list" class="list">
+                <!-- Item Transaksi -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
